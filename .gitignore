@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+**/node_modules/
+
+# Secrets & credentials - NEVER commit
+.env
+**/.env
+backend/.env
+serviceAccountKey.json
+**/serviceAccountKey.json
+*.pem
+*-firebase-adminsdk-*.json
+pacific-attic-*.json
+
+# Python
+venv/
+**/venv/
+backend/python/venv/
+backend/python/__pycache__/
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Build
+dist/
+build/
+.DS_Store
