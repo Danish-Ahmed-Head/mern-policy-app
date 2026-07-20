@@ -25,3 +25,6 @@ __pycache__/
 dist/
 build/
 .DS_Store
+
+# logs
+*.log
