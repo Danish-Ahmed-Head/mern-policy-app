@@ -1,4 +1,4 @@
-# PolicyBot — HR Policy Assistant (MERN + AI)
+# PolicyBot, HR Policy Assistant (MERN + AI)
 
 An intelligent HR Policy chatbot system that allows employees to query company policies based on their role and experience level. Built with React, Node.js, Python (LangChain + LLaMA), and MongoDB.
 
@@ -108,20 +108,20 @@ mern-policy-app/
 ### AI Model (Required for Chatbot)
 Download the LLaMA model file and place it anywhere on your machine:
 - **Model**: `Phi-3-mini-4k-instruct-v0.3-Q4_K_M.gguf`
-- Download from: [HuggingFace — Phi-3-mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf)
+- Download from: [HuggingFace, Phi-3-mini](https://huggingface.co/microsoft/Phi-3-mini-4k-instruct-gguf)
 - Set the path in your `.env` file (see setup below)
 
 ---
 
 ## Setup & Installation
 
-### Step 1 — Clone the repository
+### Step 1, Clone the repository
 ```bash
 git clone https://github.com/MUHAMMADUSAMA64874/mern-policy-app.git
 cd mern-policy-app
 ```
 
-### Step 2 — Set up environment variables
+### Step 2, Set up environment variables
 Create a file called `.env` inside the `backend/` folder:
 ```env
 MONGO_URI=mongodb://localhost:27017/policyDB
@@ -133,7 +133,7 @@ MODEL_PATH=C:/path/to/Phi-3-mini-4k-instruct-v0.3-Q4_K_M.gguf
 
 > **Gmail App Password**: Go to Google Account → Security → 2-Step Verification → App Passwords → Generate one for "Mail"
 
-### Step 3 — Install Node.js dependencies
+### Step 3, Install Node.js dependencies
 
 ```bash
 # Install backend dependencies
@@ -145,7 +145,7 @@ cd ../frontend
 npm install
 ```
 
-### Step 4 — Set up Python environment
+### Step 4, Set up Python environment
 
 ```bash
 cd backend/python
@@ -160,7 +160,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### Step 5 — Start MongoDB
+### Step 5, Start MongoDB
 Make sure MongoDB is running:
 ```bash
 # Windows (if installed as service)
@@ -176,7 +176,7 @@ mongod
 
 You need **3 terminals** running simultaneously:
 
-### Terminal 1 — Python AI Server
+### Terminal 1, Python AI Server
 ```bash
 cd backend/python
 venv\Scripts\activate     # Windows
@@ -184,14 +184,14 @@ python api.py
 # Runs on http://localhost:8000
 ```
 
-### Terminal 2 — Node.js Backend
+### Terminal 2, Node.js Backend
 ```bash
 cd backend
 node server.js
 # Runs on http://localhost:5000
 ```
 
-### Terminal 3 — React Frontend
+### Terminal 3, React Frontend
 ```bash
 cd frontend
 npm start
@@ -258,13 +258,13 @@ The system uses a database called `policyDB` with these collections:
 
 ## API Endpoints
 
-### Auth (Node.js — port 5000)
+### Auth (Node.js, port 5000)
 | Method | Endpoint | Description |
 |---|---|---|
 | POST | `/api/auth/login` | Login and get JWT token |
 | POST | `/api/auth/forgot` | Submit forgot password request |
 
-### Policy (Node.js — port 5000, requires auth)
+### Policy (Node.js, port 5000, requires auth)
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/policy/collections` | List all policy collections |
@@ -275,14 +275,14 @@ The system uses a database called `policyDB` with these collections:
 | PUT | `/api/policy/collection/:id/:recordId` | Update single record |
 | DELETE | `/api/policy/collection/:id/:recordId` | Delete single record |
 
-### Chat (Node.js — port 5000)
+### Chat (Node.js, port 5000)
 | Method | Endpoint | Description |
 |---|---|---|
 | GET | `/api/chat/history` | Get chat history for a user |
 | POST | `/api/chat/save` | Save a conversation |
 | DELETE | `/api/chat/delete` | Delete a conversation |
 
-### AI Chatbot (Python FastAPI — port 8000)
+### AI Chatbot (Python FastAPI, port 8000)
 | Method | Endpoint | Description |
 |---|---|---|
 | POST | `/api/auth/login` | Login (Python version) |
@@ -318,10 +318,10 @@ The system uses a database called `policyDB` with these collections:
 
 ## Developer Notes
 
-- The JWT secret is currently stored as a string in `auth.js` — move it to `.env` before deploying
-- Passwords are stored in plain text in MongoDB — add bcrypt hashing before production use
-- The AI model runs entirely locally — no OpenAI API key or internet connection required for chat
-- Policy collections are auto-discovered from MongoDB — just add a new collection ending in `_policies` and the bot will pick it up
+- The JWT secret is currently stored as a string in `auth.js`, move it to `.env` before deploying
+- Passwords are stored in plain text in MongoDB, add bcrypt hashing before production use
+- The AI model runs entirely locally, no OpenAI API key or internet connection required for chat
+- Policy collections are auto-discovered from MongoDB, just add a new collection ending in `_policies` and the bot will pick it up
 
 ---
 
