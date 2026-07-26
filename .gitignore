@@ -28,3 +28,6 @@ build/
 
 # logs
 *.log
+.flow-secrets.enc
+.flow-note
+.flow-pass
